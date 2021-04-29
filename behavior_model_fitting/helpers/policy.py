@@ -8,7 +8,7 @@ def softmax(z, beta):
     z : torch tensor, has 1d underlying structure after torch.squeeze
         the raw logits
     beta : float, >0
-        softmax temp, big value -> more "randomness"
+        softmax inverse temp, small value -> more "randomness"
 
     Returns
     -------
@@ -17,7 +17,7 @@ def softmax(z, beta):
 
     """
     assert beta > 0
-    return torch.nn.functional.softmax(torch.squeeze(z / beta), dim=0)
+    return torch.nn.functional.softmax(torch.squeeze(z * beta), dim=0)
 
 def pick_action(action_distribution):
         """action selection by sampling from a multinomial.
