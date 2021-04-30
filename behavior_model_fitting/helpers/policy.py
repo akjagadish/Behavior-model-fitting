@@ -1,6 +1,6 @@
 import torch
 
-def softmax(z, beta):
+def softmax(z, beta, dim=0):
     """helper function, softmax with beta
 
     Parameters
@@ -17,7 +17,7 @@ def softmax(z, beta):
 
     """
     assert beta > 0
-    return torch.nn.functional.softmax(torch.squeeze(z * beta), dim=0)
+    return torch.nn.functional.softmax(torch.squeeze(z * beta), dim=dim)
 
 def pick_action(action_distribution):
         """action selection by sampling from a multinomial.
