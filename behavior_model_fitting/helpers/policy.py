@@ -1,5 +1,7 @@
 import torch
 
+# TODO: add log max with tempreture functions
+
 def softmax(z, beta, dim=0):
     """helper function, softmax with beta
 
@@ -16,7 +18,6 @@ def softmax(z, beta, dim=0):
         a probability distribution | beta
 
     """
-    assert beta > 0
     return torch.nn.functional.softmax(torch.squeeze(z * beta), dim=dim)
 
 def pick_action(action_distribution):
