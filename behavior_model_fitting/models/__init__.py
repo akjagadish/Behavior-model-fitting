@@ -1,1 +1,1 @@
-from .Qlearner import Qlearner  
+from .Qlearner import Qlearner, bayesQlearner  
